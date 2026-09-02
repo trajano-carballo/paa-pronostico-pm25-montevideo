@@ -49,9 +49,6 @@ datos (esquema `aire`), que integra dos fuentes públicas:
 | `viento_u` | nudos | Componente este-oeste, positivo hacia el este |
 | `viento_v` | nudos | Componente norte-sur, positivo hacia el norte |
 
-**NO2 y O3 quedan excluidos** por decisión de alcance. NO2 además no tiene
-ningún dato en 2026 y su validez en 2024-2025 es de apenas 27-33 %.
-
 ---
 
 # Procedimientos aplicados
