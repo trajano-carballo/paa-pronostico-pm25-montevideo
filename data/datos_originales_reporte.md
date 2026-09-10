@@ -6,13 +6,21 @@ Dos conjuntos, sin agregar, sin imputar y sin grilla completa. Los registros con
 
 ## Alcance
 
-- Periodo solicitado: **todo el disponible (sin recorte)**
-- Estaciones de PM2.5: **Curva de Maroñas, Museo Romántico**
+Cada estacion se exporta con su propio rango, segun el uso previsto: de Curva de Maronas sale el entrenamiento completo y de Museo Romantico solo la ventana de validacion espacial.
+
+| Conjunto | Desde | Hasta |
+|---|---|---|
+| Curva de Maroñas (PM2.5) | 2024-01-01 00:00:00 | 2026-05-25 23:59:59 |
+| Museo Romántico (PM2.5) | 2026-01-01 00:00:00 | 2026-05-25 23:59:59 |
+| Meteorologia SUMU | 2024-01-01 00:00:00 | 2026-05-25 23:59:59 |
+
+El corte del 25 de mayo de 2026 es comun a las dos estaciones: Curva de Maronas interrumpe el monitoreo util a partir del 26. La meteorologia cubre la union de ambos rangos, porque mas alla no habria contaminante contra el cual alinearla.
+
 - Zona horaria de los timestamps: **America/Montevideo (UTC-3)**, con offset explicito en el archivo
 
 ## Conjunto 1 — PM2.5 (formato largo)
 
-Archivo: `pm25_original.csv` — **1943957 filas**
+Archivo: `pm25_original.csv` — **1314267 filas**
 
 | Columna | Contenido |
 |---|---|
@@ -26,12 +34,12 @@ Archivo: `pm25_original.csv` — **1943957 filas**
 
 | Estacion | Filas | Faltantes | Desde | Hasta | Valor min | Valor max |
 |---|---|---|---|---|---|---|
-| Curva de Maroñas | 1320820 | 53297 | 2024-01-01 00:00:00 | 2026-08-07 10:59:00 | 1.0000 | 3968.0000 |
-| Museo Romántico | 623137 | 12369 | 2024-01-01 00:01:18 | 2026-08-12 23:58:29 | 3.0000 | 643.0000 |
+| Curva de Maroñas | 1216750 | 30742 | 2024-01-01 00:00:00 | 2026-05-25 23:59:00 | 1.0000 | 3968.0000 |
+| Museo Romántico | 97517 | 57 | 2026-01-01 00:01:58 | 2026-05-25 23:59:07 | 3.0000 | 353.0000 |
 
 ## Conjunto 2 — Meteorologia SUMU (formato ancho)
 
-Archivo: `meteorologia_original.csv` — **22893 filas**
+Archivo: `meteorologia_original.csv` — **20977 filas**
 
 | Columna | Unidad | Contenido |
 |---|---|---|
@@ -45,14 +53,14 @@ Archivo: `meteorologia_original.csv` — **22893 filas**
 
 | Metrica | Valor |
 |---|---|
-| Filas | 22893 |
-| Rango | 2024-01-01 00:00:00 a 2026-08-13 20:00:00 |
-| Filas con flag de faltante | 70 |
-| Con temperatura | 22892 |
-| Con humedad relativa | 22891 |
-| Con direccion de viento | 22825 |
-| Con velocidad de viento | 22892 |
-| Con visibilidad | 22893 |
+| Filas | 20977 |
+| Rango | 2024-01-01 00:00:00 a 2026-05-25 23:00:00 |
+| Filas con flag de faltante | 10 |
+| Con temperatura | 20976 |
+| Con humedad relativa | 20975 |
+| Con direccion de viento | 20969 |
+| Con velocidad de viento | 20977 |
+| Con visibilidad | 20977 |
 
 ### Como esta la direccion del viento
 
@@ -62,7 +70,7 @@ Se exporta **exactamente como esta en el warehouse**, sin ninguna transformacion
 - **Convencion:** meteorologica — el angulo indica de **donde viene** el viento, no hacia donde va. 0 es viento del norte, 90 del este, 180 del sur, 270 del oeste.
 - **Viento en calma:** llega como `0` con `velocidad_viento_nudos` en `0`. No hay un codigo aparte que lo distinga de viento del norte: la unica forma de identificarlo es mirando la velocidad.
 - **Direccion variable (VRB):** el METAR original usa ese codigo cuando la direccion es inestable. En el warehouse **no aparece como texto**: el ETL convierte a numerico y lo que no parsea queda en NULL, o sea columna vacia en el CSV. No es posible distinguir un VRB de un dato ausente por otra causa.
-- **Nulos:** la columna puede venir vacia de forma independiente del flag `indicador_valor_faltante`. En este export hay 68 filas sin direccion.
+- **Nulos:** la columna puede venir vacia de forma independiente del flag `indicador_valor_faltante`. En este export hay 8 filas sin direccion.
 
 ### Como se resuelven las horas con varios reportes METAR
 
