@@ -1,13 +1,14 @@
 # Guía de preprocesamiento
 
-Decisiones metodológicas para transformar los datos crudos de `data/` en el
-conjunto de entrenamiento del modelo de pronóstico de PM2.5.
+Decisiones metodológicas para transformar los datos crudos de `data/raw/` en el
+conjunto de entrenamiento del modelo de pronóstico de PM2.5, guardado en
+`data/processed/`.
 
 ---
 
 ## Punto de partida
 
-Los archivos de `data/` vienen del warehouse **sin procesar**: sin agregar, sin
+Los archivos de `data/raw/` vienen del warehouse **sin procesar**: sin agregar, sin
 imputar, sin grilla completa y sin conversión de unidades.
 
 | Archivo | Contenido | Resolución |
@@ -21,8 +22,8 @@ artificiales y desalineaciones que contaminarían el diagnóstico de faltantes.
 ```python
 import pandas as pd
 
-pm = pd.read_csv('data/pm25_original.csv.gz', parse_dates=['timestamp'])
-me = pd.read_csv('data/meteorologia_original.csv', parse_dates=['timestamp'])
+pm = pd.read_csv('data/raw/pm25_original.csv.gz', parse_dates=['timestamp'])
+me = pd.read_csv('data/raw/meteorologia_original.csv', parse_dates=['timestamp'])
 ```
 
 Los timestamps llevan offset explícito `-03` (hora local de Montevideo, sin
@@ -321,7 +322,7 @@ válidas en las dos estaciones. Un modelo entrenado en Maroñas va a
 
 # Reproducibilidad
 
-Los archivos de `data/` son la entrada reproducible del proyecto. Están
+Los archivos de `data/raw/` son la entrada reproducible del proyecto. Están
 versionados, así que cualquier análisis parte exactamente de los mismos datos sin
 depender de acceso al warehouse ni de que las fuentes originales sigan
 disponibles o inalteradas.
@@ -332,4 +333,4 @@ período. Fijar el dataset en el repositorio elimina esa variabilidad como fuent
 de discrepancias entre resultados.
 
 El detalle de columnas, unidades y criterios de calidad de cada archivo está en
-[`data/datos_originales_reporte.md`](../data/datos_originales_reporte.md).
+[`data/raw/datos_originales_reporte.md`](../data/raw/datos_originales_reporte.md).
