@@ -1,0 +1,5 @@
+validacion,modelo,MAE,RMSE,n
+espacial (Museo Romántico),SGD,7.596,12.233,81372.0
+espacial (Museo Romántico),persistencia,6.208,15.373,81372.0
+temporal (Maroñas),SGD,9.387,16.28,83124.0
+temporal (Maroñas),persistencia,9.307,19.986,83124.0
