@@ -7401,9 +7401,9 @@ hora,estacion,pm25,n_validos,n_recortados,valida,particion,pm25_modelo,interpola
 2024-11-04 07:00:00-03:00,Curva de Maroñas,3.216666666666667,60,0,True,desarrollo,3.216666666666667,False
 2024-11-04 08:00:00-03:00,Curva de Maroñas,3.85,60,0,True,desarrollo,3.85,False
 2024-11-04 09:00:00-03:00,Curva de Maroñas,5.4,60,0,True,desarrollo,5.4,False
-2024-11-04 10:00:00-03:00,Curva de Maroñas,,9,0,False,desarrollo,,False
-2024-11-04 11:00:00-03:00,Curva de Maroñas,,29,0,False,desarrollo,,False
-2024-11-04 12:00:00-03:00,Curva de Maroñas,,42,0,False,desarrollo,,False
+2024-11-04 10:00:00-03:00,Curva de Maroñas,,9,0,False,desarrollo,5.195833333333334,True
+2024-11-04 11:00:00-03:00,Curva de Maroñas,,29,0,False,desarrollo,4.991666666666667,True
+2024-11-04 12:00:00-03:00,Curva de Maroñas,,42,0,False,desarrollo,4.7875,True
 2024-11-04 13:00:00-03:00,Curva de Maroñas,4.583333333333333,60,0,True,desarrollo,4.583333333333333,False
 2024-11-04 14:00:00-03:00,Curva de Maroñas,3.0,60,0,True,desarrollo,3.0,False
 2024-11-04 15:00:00-03:00,Curva de Maroñas,,38,0,False,desarrollo,,False
@@ -22259,9 +22259,9 @@ hora,estacion,pm25,n_validos,n_recortados,valida,particion,pm25_modelo,interpola
 2026-02-21 09:00:00-03:00,Museo Romántico,3.0,28,0,True,test,3.0,False
 2026-02-21 10:00:00-03:00,Museo Romántico,3.0,26,0,True,test,3.0,False
 2026-02-21 11:00:00-03:00,Museo Romántico,3.0,28,0,True,test,3.0,False
-2026-02-21 12:00:00-03:00,Museo Romántico,,18,0,False,test,,False
-2026-02-21 13:00:00-03:00,Museo Romántico,,16,0,False,test,,False
-2026-02-21 14:00:00-03:00,Museo Romántico,,22,0,False,test,,False
+2026-02-21 12:00:00-03:00,Museo Romántico,,18,0,False,test,3.0,True
+2026-02-21 13:00:00-03:00,Museo Romántico,,16,0,False,test,3.0,True
+2026-02-21 14:00:00-03:00,Museo Romántico,,22,0,False,test,3.0,True
 2026-02-21 15:00:00-03:00,Museo Romántico,3.0,29,0,True,test,3.0,False
 2026-02-21 16:00:00-03:00,Museo Romántico,3.0,29,0,True,test,3.0,False
 2026-02-21 17:00:00-03:00,Museo Romántico,,16,0,False,test,3.0,True
