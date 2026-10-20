@@ -1,0 +1,59 @@
+{
+  "modelo": "XGBRegressor",
+  "estrategia": "recursiva",
+  "lags": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    48,
+    168
+  ],
+  "hiperparametros": {
+    "learning_rate": 0.01,
+    "max_depth": 7,
+    "n_estimators": 300,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8
+  },
+  "semilla": 42,
+  "exog_calendario": [
+    "hora"
+  ],
+  "exog_meteo": [
+    "temperatura",
+    "humedad",
+    "velocidad_viento_ms",
+    "viento_u",
+    "viento_v",
+    "visibilidad_km"
+  ],
+  "steps": 24,
+  "interpolacion_max_horas": 3,
+  "metrica_principal": "RMSE",
+  "versiones": {
+    "skforecast": "0.24.0",
+    "sklearn": "1.6.1",
+    "xgboost": "3.4.1"
+  }
+}
